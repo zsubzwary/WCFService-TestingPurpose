@@ -16,6 +16,6 @@ namespace WCFService
         [WebInvoke(
             Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json ,UriTemplate = "/DoWork"
             )]
-        String DoWork();
+        List<Student> DoWork();
     }
 }
