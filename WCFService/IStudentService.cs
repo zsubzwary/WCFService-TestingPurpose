@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace WCFService
@@ -12,6 +13,9 @@ namespace WCFService
     public interface IStudentService
     {
         [OperationContract]
-        void DoWork();
+        [WebInvoke(
+            Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json ,UriTemplate = "/DoWork"
+            )]
+        String DoWork();
     }
 }
