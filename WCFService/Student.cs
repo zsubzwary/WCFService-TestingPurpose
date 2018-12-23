@@ -11,11 +11,17 @@ namespace WCFService
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
     public partial class Student
     {
+        //[DataMember(Order = 0)]
         public int id { get; set; }
+
+        //[DataMember(Order = 1)]
         public string name { get; set; }
+
+        //[DataMember(Order = 2)]
         public int age { get; set; }
     }
 }
