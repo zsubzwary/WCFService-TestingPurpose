@@ -22,7 +22,8 @@ namespace WCFService
         public Student getStudentOnBasisOfID(String id)
         {
             int ID = int.Parse(id);
-            return database.Students.Where(s => s.id == ID).FirstOrDefault();
+            var res = database.Students.Where(s => s.id == ID).FirstOrDefault();
+            return res!=null ? res : new Student() { id = -1, age = -1, name ="" } ;
         }
 
         public Student saveStudentToDB(String name, int age)
