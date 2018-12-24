@@ -48,5 +48,14 @@ namespace WCFService
     )]
         ReturningStatus deleteFromDB(String id);
 
+
+
+        [OperationContract]
+        [WebInvoke(
+            Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "/Students/SearchByName/{name}"
+
+    )]
+        List<Student> searchByName(String name);
+
     }
 }

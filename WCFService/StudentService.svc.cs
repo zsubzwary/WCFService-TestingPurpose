@@ -62,6 +62,12 @@ namespace WCFService
             var a = new ReturningStatus { status = $"Student with ID {id} has been removed.", extraInfo = String.Empty, operationSuccessful = true };
             return a;
         }
+
+        public List<Student> searchByName(string name)
+        {
+            var temp = database.Students.Where(a => a.name.Contains(name)).ToList();
+            return temp;
+        }
     }
 
 
