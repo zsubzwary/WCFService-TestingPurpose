@@ -11,6 +11,10 @@ namespace WCFService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "StudentService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select StudentService.svc or StudentService.svc.cs at the Solution Explorer and start debugging.
 
+        /// <summary>
+        /// A class implementing that interface
+        /// </summary>
+
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class StudentService : IStudentService
     {
@@ -88,7 +92,7 @@ namespace WCFService
         /// <summary>
         /// deletes student from DB
         /// </summary>
-        /// <param name="id">id of student</param>
+        /// <param name="ID">id of student</param>
         /// <returns>Status</returns>
         public ReturningStatus deleteFromDB(string ID)
         {
@@ -118,8 +122,19 @@ namespace WCFService
     /// </summary>
     public class ReturningStatus
     {
+        /// <summary>
+        /// tells you about the status
+        /// </summary>
         public String status { get; set; }
+
+        /// <summary>
+        /// gives out extra info
+        /// </summary>
         public String extraInfo { get; set; }
+
+        /// <summary>
+        /// tells weather the operation is successful or not
+        /// </summary>
         public bool operationSuccessful { get; set; }
     }
 }
