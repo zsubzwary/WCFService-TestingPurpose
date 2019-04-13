@@ -16,12 +16,21 @@ namespace WCFService
     {
         private static spDatabase database = new spDatabase();
 
-
+        /// <summary>
+        /// Get all students
+        /// </summary>
+        /// <returns>a list of all students</returns>
         public List<Student> getAllStudents()
         {
             return database.Students.ToList();
         }
 
+
+        /// <summary>
+        /// returns a student that has a particular ID
+        /// </summary>
+        /// <param name="id">a primary key</param>
+        /// <returns>returns a student that has a particular ID</returns>
         public Student getStudentOnBasisOfID(String id)
         {
             int ID = int.Parse(id);
@@ -29,6 +38,13 @@ namespace WCFService
             return res!=null ? res : new Student() { id = -1, age = -1, name ="" } ;
         }
 
+
+        /// <summary>
+        /// save student to DB
+        /// </summary>
+        /// <param name="name">name of student</param>
+        /// <param name="age">age of student</param>
+        /// <returns>an object holding that student</returns>
         public Student saveStudentToDB(String name, int age)
         {
             Student student = new Student() { age = age, name =name };
@@ -44,6 +60,14 @@ namespace WCFService
             return student;
         }
 
+
+        /// <summary>
+        /// updates student in DB
+        /// </summary>
+        /// <param name="id">id of student</param>
+        /// <param name="name">name of student</param>
+        /// <param name="age">age of student</param>
+        /// <returns>an object</returns>
         public Student updateStudentInDB(int id, string name, int age)
         {
             Student student = database.Students.Where(s => s.id == id).FirstOrDefault();
@@ -60,6 +84,12 @@ namespace WCFService
 
         }
 
+
+        /// <summary>
+        /// deletes student from DB
+        /// </summary>
+        /// <param name="id">id of student</param>
+        /// <returns>Status</returns>
         public ReturningStatus deleteFromDB(string ID)
         {
             int id = int.Parse(ID);
@@ -70,6 +100,12 @@ namespace WCFService
             return a;
         }
 
+
+        /// <summary>
+        /// search student by name
+        /// </summary>
+        /// <param name="name">name of student</param>
+        /// <returns>list of student matchiing searching criteria</returns>
         public List<Student> searchByName(string name)
         {
             var temp = database.Students.Where(a => a.name.Contains(name)).ToList();
@@ -77,7 +113,9 @@ namespace WCFService
         }
     }
 
-
+    /// <summary>
+    /// a class used instead of objects
+    /// </summary>
     public class ReturningStatus
     {
         public String status { get; set; }

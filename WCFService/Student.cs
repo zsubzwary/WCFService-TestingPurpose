@@ -13,14 +13,27 @@ namespace WCFService
     using System.Collections.Generic;
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// A class representing student
+    /// </summary>
     public partial class Student
     {
+        /// <summary>
+        /// id is a primary key
+        /// </summary>
         //[DataMember(Order = 0)]
         public int id { get; set; }
 
+        /// <summary>
+        /// name is users full name
+        /// </summary>
         //[DataMember(Order = 1)]
         public string name { get; set; }
 
+
+        /// <summary>
+        /// age is int value
+        /// </summary>
         //[DataMember(Order = 2)]
         public int age { get; set; }
     }
